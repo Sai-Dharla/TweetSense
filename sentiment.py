@@ -1,15 +1,15 @@
+import os
 import re
+from pathlib import Path
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-# Ensure vader_lexicon is available
-try:
-    nltk.data.find('sentiment/vader_lexicon.zip')
-except LookupError:
-    try:
-        nltk.download('vader_lexicon', quiet=True)
-    except Exception as e:
-        print(f"Warning downloading vader_lexicon: {e}")
+# Configure NLTK to use bundled nltk_data directory
+PROJECT_ROOT = Path(__file__).resolve().parent
+NLTK_DATA_DIR = str(PROJECT_ROOT / "nltk_data")
+
+if NLTK_DATA_DIR not in nltk.data.path:
+    nltk.data.path.insert(0, NLTK_DATA_DIR)
 
 # Initialize SentimentIntensityAnalyzer instance
 _sia = None
@@ -17,11 +17,7 @@ _sia = None
 def get_analyzer():
     global _sia
     if _sia is None:
-        try:
-            _sia = SentimentIntensityAnalyzer()
-        except LookupError:
-            nltk.download('vader_lexicon', quiet=True)
-            _sia = SentimentIntensityAnalyzer()
+        _sia = SentimentIntensityAnalyzer()
     return _sia
 
 def preprocess_tweet(text: str) -> str:
