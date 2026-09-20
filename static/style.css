@@ -355,3 +355,149 @@ html, body {
     display: none !important;
 }
 
+/* ==================================================
+   RESPONSIVE MOBILE BREAKPOINTS
+   Preserves desktop layout; reflows on mobile devices
+   ================================================== */
+
+@media (max-width: 768px) {
+    html, body {
+        height: auto;
+        min-height: 100vh;
+        max-height: none;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .app-viewport {
+        height: auto;
+        min-height: 100vh;
+        padding: 16px 16px 24px;
+    }
+
+    .header {
+        height: 36px;
+        margin-bottom: 12px;
+    }
+
+    .twitter-bird-icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .brand-text {
+        font-size: 1.25rem;
+    }
+
+    .main-container {
+        align-items: flex-start;
+        padding-top: 8px;
+    }
+
+    .center-content {
+        margin-top: 0;
+        max-width: 100%;
+    }
+
+    .heading-group {
+        margin-bottom: 18px;
+        padding: 0 4px;
+    }
+
+    .main-title {
+        font-size: 1.55rem;
+        line-height: 1.25;
+        margin-bottom: 6px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    .workspace-card {
+        padding: 20px 16px;
+        border-radius: 16px;
+        gap: 16px;
+    }
+
+    .tweet-textarea {
+        height: 105px;
+        font-size: 0.94rem;
+        padding: 12px 14px;
+    }
+
+    .btn-analyze {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .result-box {
+        min-height: 76px;
+        padding: 14px 16px;
+    }
+
+    .result-content {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .result-row {
+        width: 100%;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .result-label {
+        font-size: 0.9rem;
+    }
+
+    .sentiment-badge {
+        padding: 4px 12px;
+        font-size: 0.88rem;
+    }
+
+    .compound-score {
+        font-size: 1rem;
+    }
+}
+
+/* Extra small devices (320px - 375px) */
+@media (max-width: 375px) {
+    .app-viewport {
+        padding: 12px 12px 20px;
+    }
+
+    .main-title {
+        font-size: 1.35rem;
+    }
+
+    .subtitle {
+        font-size: 0.85rem;
+    }
+
+    .workspace-card {
+        padding: 16px 12px;
+        gap: 14px;
+    }
+
+    .tweet-textarea {
+        height: 95px;
+        font-size: 0.9rem;
+    }
+
+    .btn-analyze {
+        height: 40px;
+        font-size: 0.9rem;
+    }
+
+    .result-box {
+        padding: 12px;
+    }
+}
+
+
