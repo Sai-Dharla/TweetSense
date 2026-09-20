@@ -1,0 +1,357 @@
+/* CSS Reset & Base */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg-main: #f0f4f9;
+    --card-bg: #ffffff;
+    --primary-blue: #1d9bf0;
+    --primary-blue-hover: #1a8cd8;
+    --text-main: #0f1419;
+    --text-muted: #536471;
+    --border-light: #e1e8ed;
+    --border-focus: #1d9bf0;
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
+    
+    /* Sentiment Colors */
+    --pos-green: #00ba7c;
+    --pos-bg: #e6f7ef;
+    --neg-red: #f4212e;
+    --neg-bg: #ffecee;
+    --neu-blue: #536471;
+    --neu-bg: #f3f5f7;
+}
+
+html, body {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* App Viewport: Strict single screen layout */
+.app-viewport {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 36px;
+}
+
+/* Header & Brand */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40px;
+    margin-bottom: 12px;
+}
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    user-select: none;
+}
+
+.twitter-bird-icon {
+    width: 28px;
+    height: 28px;
+    fill: var(--primary-blue);
+}
+
+.brand-text {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+/* Main Container */
+.main-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0; /* Prevents overflow in flex children */
+}
+
+.center-content {
+    width: 100%;
+    max-width: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -30px; /* Slight optical lift for center positioning */
+}
+
+/* Heading Section */
+.heading-group {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.main-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 0.98rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.tag-pos {
+    color: var(--pos-green);
+    font-weight: 600;
+}
+
+.tag-neg {
+    color: var(--neg-red);
+    font-weight: 600;
+}
+
+.tag-neu {
+    color: #657786;
+    font-weight: 600;
+}
+
+/* Workspace Card */
+.workspace-card {
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 26px 28px;
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Tweet Input Area */
+.input-container {
+    position: relative;
+    width: 100%;
+}
+
+.tweet-textarea {
+    width: 100%;
+    height: 110px;
+    padding: 14px 16px;
+    font-size: 0.98rem;
+    font-family: inherit;
+    line-height: 1.5;
+    color: var(--text-main);
+    background-color: #fcfdfe;
+    border: 1.5px solid var(--border-light);
+    border-radius: 12px;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tweet-textarea::placeholder {
+    color: #aab8c2;
+}
+
+.tweet-textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(29, 155, 240, 0.12);
+    background-color: #ffffff;
+}
+
+.counter-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 6px;
+    padding-right: 4px;
+}
+
+.char-count {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: #8899a6;
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.char-count.limit-reached {
+    color: var(--neg-red);
+    font-weight: 600;
+}
+
+/* Action Button */
+.action-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.btn-analyze {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 190px;
+    height: 44px;
+    padding: 0 24px;
+    font-size: 0.96rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: #ffffff;
+    background-color: var(--primary-blue);
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(29, 155, 240, 0.25);
+    transition: background-color 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+}
+
+.btn-analyze:hover {
+    background-color: var(--primary-blue-hover);
+    box-shadow: 0 4px 10px rgba(29, 155, 240, 0.35);
+}
+
+.btn-analyze:active {
+    transform: scale(0.98);
+}
+
+.btn-analyze:disabled {
+    background-color: #8ecdf8;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Spinner */
+.btn-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.75s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Result Box */
+.result-box {
+    width: 100%;
+    min-height: 84px;
+    background-color: #f7f9fa;
+    border: 1px dashed #dbe3e8;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 20px;
+    transition: all 0.25s ease;
+}
+
+.initial-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ccd6dd;
+}
+
+.placeholder-icon {
+    width: 32px;
+    height: 32px;
+    stroke: #b0bec5;
+    opacity: 0.75;
+}
+
+/* Result Content */
+.result-content {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.sentiment-badge {
+    display: inline-block;
+    padding: 5px 14px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    border-radius: 20px;
+    letter-spacing: 0.01em;
+}
+
+.sentiment-badge.positive {
+    color: var(--pos-green);
+    background-color: var(--pos-bg);
+}
+
+.sentiment-badge.negative {
+    color: var(--neg-red);
+    background-color: var(--neg-bg);
+}
+
+.sentiment-badge.neutral {
+    color: #4a5568;
+    background-color: #edf2f7;
+}
+
+.compound-score {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-main);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Error Content */
+.error-content {
+    text-align: center;
+    width: 100%;
+}
+
+.error-text {
+    font-size: 0.9rem;
+    color: var(--neg-red);
+    font-weight: 500;
+}
+
+/* Utility */
+.hidden {
+    display: none !important;
+}
+
